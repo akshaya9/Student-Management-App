@@ -9,13 +9,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
-public class Payment {
+public class Lesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,16 +23,13 @@ public class Payment {
     @ManyToOne(fetch = FetchType.EAGER)
     private Student student;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Lesson lesson;
-
     @Column
-    private LocalDateTime dateTime;
-
-    @Column
-    private BigDecimal amount;
+    private LocalDateTime scheduledDateTime;
 
     @Column
     private String comment;
+
+    @Column
+    private boolean isCancelled;
 
 }
